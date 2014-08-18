@@ -1,4 +1,14 @@
 lamassu-bitpay
 ==============
 
-lamassu-server module containing ticker functionality from BitPay's exchange rate API. 
+Lamassu BitPay ticker
+
+### Testing
+
+1. Type this into your terminal:
+
+```bash
+npm update # in case you cloned via git
+npm test
+```
+
