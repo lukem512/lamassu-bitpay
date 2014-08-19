@@ -3,11 +3,17 @@
 var _       = require('lodash');
 var Wreck   = require('wreck');
 var async   = require('async');
-var config  = require('../config');
 
 
-_.merge(exports, config);
-var API_ENDPOINT = config.API_ENDPOINT;
+exports.NAME = 'Bitpay';
+exports.SUPPORTED_MODULES = ['ticker'];
+exports.API_ENDPOINT = 'https://bitpay.com/api/';
+var API_ENDPOINT = exports.API_ENDPOINT;
+
+
+exports.config = function config(config) {
+  if (config) _.merge(exports, config);
+};
 
 
 function getTickerUrls(currencies) {
@@ -37,14 +43,9 @@ function formatResponse(currencies, results, callback) {
     return prev;
   }, {});
 
-
   // check if all requested currencies are present in response
-  for (var i = 0; i < currencies.length; i++) {
-    var currency = currencies[i];
-    if (typeof out[currency] === 'undefined') {
-      return callback(new Error('Unsupported currency: ' + currency));
-    }
-  }
+  if (currencies.length !== Object.keys(out).length)
+    return callback(new Error('Unsupported currency'));
 
   callback(null, out);
 };

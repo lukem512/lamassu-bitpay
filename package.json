@@ -2,7 +2,7 @@
   "name": "lamassu-bitpay",
   "version": "1.0.0",
   "description": "BitPay ticker for lamassu-server",
-  "main": "lib/ticker.js",
+  "main": "ticker.js",
   "scripts": {
     "test": "mocha"
   },
