@@ -8,10 +8,11 @@ var async   = require('async');
 exports.NAME = 'Bitpay';
 exports.SUPPORTED_MODULES = ['ticker'];
 var API_ENDPOINT = 'https://bitpay.com/api/';
+var config = {};
 
 
-exports.config = function config(config) {
-  if (config) _.merge(exports, config);
+exports.config = function config(localConfig) {
+  if (localConfig) _.merge(config, localConfig);
 };
 
 
