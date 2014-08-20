@@ -34,8 +34,6 @@ function checkCurrency(results, currency) {
 };
 
 
-// only test if ticker is declared to be working
-
 var tickerPlugin = require('../ticker');
 describe(tickerPlugin.NAME + ' Ticker', function() {
 

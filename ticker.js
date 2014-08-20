@@ -7,8 +7,7 @@ var async   = require('async');
 
 exports.NAME = 'Bitpay';
 exports.SUPPORTED_MODULES = ['ticker'];
-exports.API_ENDPOINT = 'https://bitpay.com/api/';
-var API_ENDPOINT = exports.API_ENDPOINT;
+var API_ENDPOINT = 'https://bitpay.com/api/';
 
 
 exports.config = function config(config) {
