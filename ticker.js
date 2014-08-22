@@ -23,7 +23,7 @@ function getTickerUrls(currencies) {
   ];
 
   return urls;
-};
+}
 
 function formatResponse(currencies, results, callback) {
   if (currencies.length > 1)
@@ -48,7 +48,7 @@ function formatResponse(currencies, results, callback) {
     return callback(new Error('Unsupported currency'));
 
   callback(null, out);
-};
+}
 
 
 exports.ticker = function ticker(currencies, callback) {
@@ -66,7 +66,7 @@ exports.ticker = function ticker(currencies, callback) {
       Wreck.get(url, {json: true}, function(err, res, payload) {
         cb(err, payload);
       });
-    }
+    };
   });
 
   async.parallel(downloadList, function(err, results) {
