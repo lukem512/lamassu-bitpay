@@ -1,24 +1,24 @@
 {
-  "name": "lamassu-bitpay",
-  "version": "1.0.3",
-  "description": "BitPay ticker for lamassu-server",
+  "name": "lamassu-startwallet",
+  "version": "1.0.0",
+  "description": "StartWallet ticker for lamassu-server",
   "main": "ticker.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lamassu/lamassu-bitpay.git"
+    "url": "https://github.com/startcoin-project/lamassu-startwallet.git"
   },
   "keywords": [
-    "Lamassu",
-    "Bitpay",
+    "StartCOIN",
+    "StartWallet",
     "Bitcoin"
   ],
-  "author": "Lamassu (https://lamassu.is)",
+  "author": "Luke Mitchell",
   "license": "unlicense",
   "bugs": {
-    "url": "https://github.com/lamassu/lamassu-bitpay/issues"
+    "url": "https://github.com/startcoin-project/lamassu-startwallet/issues"
   },
   "devDependencies": {
     "chai": "^1.9.1",

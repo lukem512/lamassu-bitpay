@@ -1,9 +1,7 @@
-lamassu-bitpay
+lamassu-startwallet
 ==============
 
-[![Build Status](https://travis-ci.org/lamassu/lamassu-bitpay.svg)](https://travis-ci.org/lamassu/lamassu-bitpay)
-
-Lamassu BitPay ticker
+Lamassu StartWallet ticker
 
 ### Testing
 

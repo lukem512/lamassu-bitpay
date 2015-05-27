@@ -5,9 +5,9 @@ var Wreck   = require('wreck');
 var async   = require('async');
 
 
-exports.NAME = 'Bitpay';
+exports.NAME = 'StartWallet';
 exports.SUPPORTED_MODULES = ['ticker'];
-var API_ENDPOINT = 'https://bitpay.com/api/';
+var API_ENDPOINT = 'https://rates.startwallet.com/';
 var pluginConfig = {};
 
 
@@ -17,19 +17,25 @@ exports.config = function config(localConfig) {
 
 
 function getTickerUrls(currencies) {
-  var suffix = currencies.length === 1 ? '/' + currencies[0] : '';
-  var urls = [
-    API_ENDPOINT + 'rates' + suffix
-  ];
-
+  var urls = currencies.map(function(currency){
+    return API_ENDPOINT + 'currency/' + currency.toUpperCase();
+  });
   return urls;
 }
 
 function formatResponse(currencies, results, callback) {
-  if (currencies.length > 1)
-    results = results[0];
-
   var out = results.reduce(function(prev, current) {
+    // parse as JSON, if possible
+    // invalid JSON means a server error
+    var tmp;
+    try {
+      tmp = JSON.parse(current);
+    }
+    catch (ex) {
+      return prev;
+    }
+    current = tmp;
+
     if (currencies.indexOf(current.code) !== -1) {
       prev[current.code] = {
         currency: current.code,
